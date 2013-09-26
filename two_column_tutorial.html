@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<title>Page Title Goes Here. This shows up at the top of the browser.</title>
+<!--Text in these brackets are comments. They're just notes that won't affect the code,
+and you can delete them after you're done.-->
+
+<!--All scripts and css styles go in this head section-->
+<head>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+//This is the jquery script that controls the actions. We're going to make a few tabs inside our page.
+$(document).ready(function(){
+	//Each tab is a seperate div section. You can name these whatever you like. I named the first one #home
+	//When the page loads, we start off by hiding everything except the home tab that we want to show up first. 
+	//If you want to add more tabs, you need to hide them here too.
+	$("#tab2").hide();
+	$("#tab3").hide();
+	
+	//Each one of these click functions controls what happens when we click on the tab's link.
+	$("#homelink").click(function(){
+		$("#tab2").hide(); //We hide all other tabs
+		$("#tab3").hide();
+		$("#home").show(); //then show only the one that was clicked on
+	});
+	
+	$("#tab2link").click(function(){
+		$("#home").hide();
+		$("#tab3").hide();
+		$("#tab2").show();
+	});
+	
+	$("#tab3link").click(function(){
+		$("#home").hide();
+		$("#tab2").hide();
+		$("#tab3").show();
+	});
+	
+	//You need to add a new click function for every new tab you make.
+});
+</script>
+
+<!--This css section controls the look of the page-->
+<style type="text/css">
+/*These are also comments*/ 
+
+/*body controls the properties of the entire page. You can set the backgorund, font, text color, etc here. 
+Any div section you don't specifically declare properties for will have the properties under body. If you
+secify the same properties under a specific section, they will overwrite the ones in body only in that
+section*/
+body{
+	background-color:#cccccc;
+	font-family:"Arial";
+	font-size:20px;
+	overflow:hidden; /*hide the scrollbar*/
+}
+
+/*controls all link properties*/
+a:link {color:#FF0000; text-decoration:none;}  /* unvisited link */
+a:visited {color:#FFAA00; text-decoration:none;}  /* visited link */
+a:hover {color:#FF00FF; text-decoration:none;}  /* mouse over link */
+a:active {color:#0000FF; text-decoration:none;}  /* selected link */ 
+
+/*This controls everything in <h1> </h1> tags. h1 is the biggest header size. You can use this for 
+big text, like page titles. h2, h3, etc are used for smaller headers*/
+h1{
+	color:orange;
+	text-align:center;
+}
+
+/*p is for paragraphs, anything you put in the <p> </p> tags will have these properties, overwriting
+any of the same text properties you might have specified earlier in body.*/
+p{
+	font-family:"Times New Roman";
+	font-size:14px;
+	color:#009900;
+}
+
+/*This controls everything in the <div> tags with id="left_column". You need to put a "#" in front 
+when you declare a div id*/
+#left_column{
+	float:left; /*forces the div section onto the left side of the page.*/
+	border-right:2px dotted #ffffff; /*creates a dotted border between left and right column. you can also
+	change this to a dashed or solid border, or have no border at all*/
+	width:19%; /*sets the width of the left column to 30% of the current browser width. You can also 
+	specify with px, but using % will make keep the proportions right regardless of browser size*/	
+	position:absolute;
+	height:100%;
+}
+
+/*controls everything in the <div> tags with id="right_column"*/
+#right_column{
+	width:80%; /*sets the width of the right column to 70% of the current browser width.*/
+	float:right; /*forces the div section onto the right side of the page.*/
+	margin-bottom:10%;
+	overflow:hidden; /*hide the scrollbar*/
+}
+
+/*you can also stack div sections together like this if you want to give them the same properties*/
+#home,#tab2,#tab3{
+	position:absolute;
+	overflow-y:auto;
+	width:81%; /*We make the width of the content sections bigger than the right column to hide the scrollbar while
+	still being able to scroll down.*/
+	height:100%;
+}
+
+#footer{
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:20px;
+   font-size:11px;
+   color:white;
+}
+</style>
+<!--end of css section-->
+</head>
+
+<!--Actual page content goes in the body section-->
+<body>
+
+<div id="left_column">
+	This is the left column <br><!--the <br> tag makes a new line-->
+	<!--Here we're making "fake links" to our tabs. Usually href="some url" but we're not actully linking to a
+	new page, so we put a "#" in for the url-->
+	<a id="homelink" href="#">Home</a><br> 
+	<a id="tab2link" href="#">Tab 2</a><br> 
+	<a id="tab3link" href="#">Tab 3</a><br>
+</div>
+
+<div id="right_column">
+	<!--We're nesting all our tabs inside the right column.-->
+	<div id="home">
+		<h1>This text is in h1 header tags</h1>
+		This is the right column. <br> 
+		This text is not in tags.
+		<p>This text is in paragraph tags.</p>
+	</div>
+	
+	<div id="tab2">
+		<h1>This is tab 2</h1>
+		The tabs can scroll down if the content exceeds the browser height. <br>
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+		content here content here content here content here content here content here content here content here 
+	</div>
+	
+	<div id="tab3">
+		<h1>This is tab 3</h1>
+		other content here 
+		<br>
+		<img src="http://www.photo-dictionary.com/photofiles/list/396/763sunflower.jpg" width=400px height=400px>
+	</div>
+	
+</div>
+
+</body>
+</html>
